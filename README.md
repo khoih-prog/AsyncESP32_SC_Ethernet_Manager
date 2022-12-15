@@ -90,7 +90,7 @@
   * [Custom IP Configuration](#custom-ip-configuration) 
     * [Custom Station (client) Static IP Configuration](#custom-station-client-static-ip-configuration)
   * [Custom HTML, CSS, Javascript](#custom-html-css-javascript) 
-* [How to connect W5500 or ENC28J60 to ESP32](#How-to-connect-W5500-or-ENC28J60-to-ESP32)
+* [How to connect W5500 or ENC28J60 to ESP32_S3](#How-to-connect-W5500-or-ENC28J60-to-ESP32_S3)
 * [Examples](#examples)
   * [Async_ConfigOnSwitch](examples/Async_ConfigOnSwitch)
   * [Async_ConfigOnSwitchFS](examples/Async_ConfigOnSwitchFS)
@@ -1867,7 +1867,7 @@ ESPAsync_EMParameter custom_mqtt_server("server", "mqtt server", "iot.eclipse", 
 ---
 ---
 
-#### How to connect W5500 or ENC28J60 to ESP8266
+#### How to connect W5500 or ENC28J60 to ESP32_S3
 
 You can change the `INT` pin to another one. Default is `GPIO4`
 
