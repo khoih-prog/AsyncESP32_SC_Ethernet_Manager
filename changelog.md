@@ -16,6 +16,7 @@
 ## Table of contents
 
 * [Changelog](#changelog)
+  * [Releases v1.0.1](#releases-v101)
   * [Releases v1.0.0](#releases-v100)
 
 
@@ -24,6 +25,10 @@
 ---
 
 ## Changelog
+
+#### Releases v1.0.1
+
+1. Fix typo
 
 #### Releases v1.0.0
 
