@@ -800,6 +800,7 @@ void initEthernet()
 void beginEthernet()
 {
   LOGWARN(F("Default SPI pinout:"));
+  LOGWARN1(F("SPI_HOST:"), ETH_SPI_HOST);
   LOGWARN1(F("MOSI:"), MOSI_GPIO);
   LOGWARN1(F("MISO:"), MISO_GPIO);
   LOGWARN1(F("SCK:"),  SCK_GPIO);
@@ -819,8 +820,8 @@ void beginEthernet()
 
   //bool begin(int MISO_GPIO, int MOSI_GPIO, int SCLK_GPIO, int CS_GPIO, int INT_GPIO, int SPI_CLOCK_MHZ,
   //           int SPI_HOST, uint8_t *ENC28J60_Mac = ENC28J60_Default_Mac);
-  //ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, SPI_HOST );
-  ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, SPI_HOST, mac[index] );
+  //ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, ETH_SPI_HOST );
+  ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, ETH_SPI_HOST, mac[index] );
 }
 
 void initEthernet()
@@ -942,14 +943,11 @@ void setup()
   AsyncESP32_SC_Ethernet_manager.setCORSHeader("Your Access-Control-Allow-Origin");
 #endif
 
-  bool configDataLoaded = false;
-
   if (loadConfigData())
   {
-    configDataLoaded = true;
-
-    AsyncESP32_SC_Ethernet_manager.setConfigPortalTimeout(
-      120); //If no access point name has been previously entered disable timeout.
+    //If no access point name has been previously entered disable timeout
+    AsyncESP32_SC_Ethernet_manager.setConfigPortalTimeout(120);
+    
     Serial.println(F("Got stored Credentials. Timeout 120s for Config Portal"));
 
 #if USE_ESP_ETH_MANAGER_NTP
@@ -1083,8 +1081,9 @@ void loop()
 
     if (loadConfigData())
     {
-      AsyncESP32_SC_Ethernet_manager.setConfigPortalTimeout(
-        120); //If no access point name has been previously entered disable timeout.
+      //If no access point name has been previously entered disable timeout
+      AsyncESP32_SC_Ethernet_manager.setConfigPortalTimeout(120);
+      
       Serial.println(F("Got stored Credentials. Timeout 120s for Config Portal"));
     }
     else

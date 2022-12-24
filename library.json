@@ -1,6 +1,6 @@
 {
   "name": "AsyncESP32_SC_Ethernet_Manager",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "keywords": "ethernet, Credentials-Manager, esp32, esp32-s2, esp32-s3, esp32-c3, lwip, w5500, lwip-w5500, enc28j60, lwip-enc28j60, lwip-ethernet, AsyncWebServer, Async-Credentials-Manager, Async, Communication, Credentials, Config-Portal, DoubleReset, littlefs, spiffs, dns-server, iot, eeprom",
   "description": "ESP32_S2/S3/C3 + LwIP W5500 / ENC28J60 Connection and Credentials Manager using AsyncWebServer, with enhanced GUI and fallback Web ConfigPortal. This Library is used for configuring ESP32_S2/S3/C3 + LwIP W5500 / ENC28J60 Credentials Manager at runtime. You can also specify static DNS servers, personalized HostName, static or DHCP IP. With configurable CORS Header and auto-Timezone features. Using AsyncDNSServer instead of DNSServer now. Now using correct ESP32 chipIP",
   "authors":
@@ -38,13 +38,13 @@
     {
       "owner": "khoih-prog",
       "name": "WebServer_ESP32_SC_W5500",
-      "version": ">=1.0.1",
+      "version": ">=1.2.1",
       "platforms": ["espressif32"]
     },
     {
       "owner": "khoih-prog",
       "name": "WebServer_ESP32_SC_ENC",
-      "version": ">=1.0.0",
+      "version": ">=1.2.0",
       "platforms": ["espressif32"]
     },
     {
