@@ -17,7 +17,7 @@
 * [Why do we need this AsyncESP32_SC_Ethernet_Manager library](#why-do-we-need-this-async-AsyncESP32_SC_Ethernet_Manager-library)
   * [Features](#features)
   * [Why Async is better](#why-async-is-better)
-  * [Twin Libraries](#Twin-Libraries)
+  * [Sibling Libraries](#Sibling-Libraries)
   	* [Base libraries](#Base-libraries)
   	* [Synchronous Ethernet Manager libraries](#Synchronous-Ethernet-Manager-libraries)
   	* [Asynchronous Ethernet Manager libraries](#Asynchronous-Ethernet-Manager-libraries)
@@ -90,7 +90,7 @@
   * [Custom IP Configuration](#custom-ip-configuration) 
     * [Custom Station (client) Static IP Configuration](#custom-station-client-static-ip-configuration)
   * [Custom HTML, CSS, Javascript](#custom-html-css-javascript) 
-* [How to connect W5500 or ENC28J60 to ESP32_S3](#How-to-connect-W5500-or-ENC28J60-to-ESP32_S3)
+* [How to connect W5500 or ENC28J60 to ESP32_S2/S3/C3](#How-to-connect-W5500-or-ENC28J60-to-ESP32_S2S3C3)
 * [Examples](#examples)
   * [Async_ConfigOnSwitch](examples/Async_ConfigOnSwitch)
   * [Async_ConfigOnSwitchFS](examples/Async_ConfigOnSwitchFS)
@@ -104,6 +104,7 @@
   * [1. Async_ConfigOnDoubleReset_TZ using LittleFS on ESP32S3_DEV with ESP32_S3_ENC28J60](#1-Async_ConfigOnDoubleReset_TZ-using-LittleFS-on-ESP32S3_DEV-with-ESP32_S3_ENC28J60)
   * [2. Async_ConfigOnSwichFS using LittleFS on ESP32S3_DEV with ESP32_S3_W5500](#2-Async_ConfigOnSwichFS-using-LittleFS-on-ESP32S3_DEV-with-ESP32_S3_W5500)
   * [3. Async_ESP32_FSWebServer_DRD using LittleFS on ESP32S3_DEV with ESP32_S3_W5500](#3-Async_ESP32_FSWebServer_DRD-using-LittleFS-on-ESP32S3_DEV-with-ESP32_S3_W5500)
+  * [4. Async_ConfigOnDoubleReset_TZ using LittleFS on ESP32S2_DEV with ESP32_S2_ENC28J60](#4-Async_ConfigOnDoubleReset_TZ-using-LittleFS-on-ESP32S2_DEV-with-ESP32_S2_ENC28J60)
 * [Debug](#debug)
 * [Troubleshooting](#troubleshooting)
 * [Issues](#issues)
@@ -154,10 +155,9 @@ To appreciate the power of the [ESPAsyncWebServer](https://github.com/me-no-dev/
 
 ---
 
-### Twin Libraries
+### Sibling Libraries
 
-
-Please also check these twin libraries
+Please also check these `sibling libraries`
 
 #### Base libraries
 
@@ -173,6 +173,9 @@ Please also check these twin libraries
 1. [ESP32_ENC_Manager](https://github.com/khoih-prog/ESP32_ENC_Manager) for ESP32-boards using `LwIP ENC28J60`
 2. [ESP32_W5500_Manager](https://github.com/khoih-prog/ESP32_W5500_Manager) for ESP32-boards using `LwIP W5500`
 3. [ESP32_Ethernet_Manager](https://github.com/khoih-prog/ESP32_Ethernet_Manager) for ESP32-boards using `LwIP W5500 or ENC28J60`
+4. [ESP32_SC_ENC_Manager](https://github.com/khoih-prog/ESP32_SC_ENC_Manager) for ESP32_S2/S3/C3-boards using `LwIP ENC28J60`
+5. [ESP32_SC_W5500_Manager](https://github.com/khoih-prog/ESP32_SC_W5500_Manager) for ESP32_S2/S3/C3-boards using `LwIP W5500`
+6. [ESP32_SC_Ethernet_Manager](https://github.com/khoih-prog/ESP32_SC_Ethernet_Manager) for ESP32_S2/S3/C3-boards using `LwIP W5500 or ENC28J60`
 
 #### Asynchronous Ethernet Manager libraries
 
@@ -182,6 +185,7 @@ Please also check these twin libraries
 4. [AsyncESP32_Ethernet_Manager](https://github.com/khoih-prog/AsyncESP32_Ethernet_Manager) for ESP32-boards using `LwIP W5500 or ENC28J60`
 5. [AsyncESP32_SC_ENC_Manager](https://github.com/khoih-prog/AsyncESP32_SC_ENC_Manager) for ESP32_S2/S3/C3-boards using `LwIP ENC28J60`
 6. [AsyncESP32_SC_W5500_Manager](https://github.com/khoih-prog/AsyncESP32_SC_W5500_Manager) for ESP32_S2/S3/C3-boards using `LwIP W5500`
+7. [AsyncESP32_SC_Ethernet_Manager](https://github.com/khoih-prog/AsyncESP32_SC_Ethernet_Manager) for ESP32_S2/S3/C3-boards using `LwIP W5500 or ENC28J60`
 
 
 ---
@@ -191,7 +195,11 @@ Please also check these twin libraries
 
 This [**AsyncESP32_SC_Ethernet_Manager** library](https://github.com/khoih-prog/AsyncESP32_SC_Ethernet_Manager) currently supports these following boards:
 
- 1. **ESP32_S3 boards** using `LwIP W5500 or ENC28J60 Ethernet`
+1. **ESP32_S3-based boards (ESP32S3_DEV, ESP32_S3_BOX, UM TINYS3, UM PROS3, UM FEATHERS3, etc.)**
+2. **ESP32-S2 (ESP32-S2 Saola, AI-Thinker ESP-12K, etc.)**
+3. **ESP32-C3 (ARDUINO_ESP32C3_DEV, etc.)**
+
+using `LwIP W5500 or ENC28J60 Ethernet`
  
 --- 
 
@@ -200,6 +208,22 @@ This [**AsyncESP32_SC_Ethernet_Manager** library](https://github.com/khoih-prog/
 <p align="center">
     <img src="https://github.com/khoih-prog/AsyncESP32_SC_Ethernet_Manager/raw/main/Images/ESP32S3_DEV.png">
 </p> 
+
+
+
+#### ESP32S2_DEV
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_W5500_Manager/raw/main/Images/ESP32S2_DEV.png">
+</p> 
+
+
+#### ESP32C3_DEV
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_W5500_Manager/raw/main/Images/ESP32_C3_DevKitC_02.png">
+</p> 
+
 
 ---
 
@@ -226,13 +250,13 @@ This [**AsyncESP32_SC_Ethernet_Manager** library](https://github.com/khoih-prog/
 ## Prerequisites
 
  1. [`Arduino IDE 1.8.19+` for Arduino](https://github.com/arduino/Arduino). [![GitHub release](https://img.shields.io/github/release/arduino/Arduino.svg)](https://github.com/arduino/Arduino/releases/latest)
- 2. [`ESP32 Core 2.0.5+`](https://github.com/espressif/arduino-esp32) for ESP32-based boards. [![Latest release](https://img.shields.io/github/release/espressif/arduino-esp32.svg)](https://github.com/espressif/arduino-esp32/releases/latest/)
+ 2. [`ESP32 Core 2.0.6+`](https://github.com/espressif/arduino-esp32) for ESP32-based boards. [![Latest release](https://img.shields.io/github/release/espressif/arduino-esp32.svg)](https://github.com/espressif/arduino-esp32/releases/latest/)
  3. [`ESPAsyncWebServer v1.2.3+`](https://github.com/me-no-dev/ESPAsyncWebServer). You have to use the latest [forked ESPAsyncWebServer](https://github.com/khoih-prog/ESPAsyncWebServer) if the PR [Fix compiler error for ESP32-C3 and mbed TLS v2.7.0+ #970](https://github.com/me-no-dev/ESPAsyncWebServer/pull/970) hasn't been merged. **To install manually for Arduino IDE**
  4. [`ESPAsyncDNSServer v1.0.0+`](https://github.com/devyte/ESPAsyncDNSServer) or [`Forked ESPAsyncDNSServer v1.0.0+`](https://github.com/khoih-prog/ESPAsyncDNSServer/releases/tag/v1.0.0)
  5. [`AsyncTCP v1.1.1+`](https://github.com/me-no-dev/AsyncTCP). **To install manually for Arduino IDE**
  6. [`ESP_DoubleResetDetector v1.3.2+`](https://github.com/khoih-prog/ESP_DoubleResetDetector) if using DRD feature. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/ESP_DoubleResetDetector.svg?)](https://www.ardu-badge.com/ESP_DoubleResetDetector). Use v1.1.0+ if using `LittleFS` for ESP32 v1.0.6+.
- 7. [`WebServer_ESP32_SC_W5500 library v1.0.1+`](https://github.com/khoih-prog/WebServer_ESP32_SC_W5500) if necessary to use `ESP32_S2/S3/C3` boards with `LwIP W5500` Ethernet. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_SC_W5500.svg?)](https://www.ardu-badge.com/WebServer_ESP32_SC_W5500)
- 8. [`WebServer_ESP32_SC_ENC library v1.0.0+`](https://github.com/khoih-prog/WebServer_ESP32_SC_ENC) if necessary to use `ESP32_S2/S3/C3` boards with `LwIP ENC28J60` Ethernet. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_SC_ENC.svg?)](https://www.ardu-badge.com/WebServer_ESP32_SC_ENC)
+ 7. [`WebServer_ESP32_SC_W5500 library v1.2.1+`](https://github.com/khoih-prog/WebServer_ESP32_SC_W5500) if necessary to use `ESP32_S2/S3/C3` boards with `LwIP W5500` Ethernet. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_SC_W5500.svg?)](https://www.ardu-badge.com/WebServer_ESP32_SC_W5500)
+ 8. [`WebServer_ESP32_SC_ENC library v1.2.0+`](https://github.com/khoih-prog/WebServer_ESP32_SC_ENC) if necessary to use `ESP32_S2/S3/C3` boards with `LwIP ENC28J60` Ethernet. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_SC_ENC.svg?)](https://www.ardu-badge.com/WebServer_ESP32_SC_ENC)
  
 ---
 ---
@@ -1436,6 +1460,7 @@ bool readConfigFile()
       Serial.println("JSON parseObject() failed");
       return false;
     }
+    
     json.printTo(Serial);
 #endif
 
@@ -1461,7 +1486,9 @@ bool readConfigFile()
       pinScl = json[PinSCL_Label];
     }
   }
+  
   Serial.println("\nConfig file was successfully parsed");
+  
   return true;
 }
 
@@ -1484,6 +1511,7 @@ We'll inform and abort if the `CONFIG_FILE` can't be opened (file not found, can
 if (!f)
 {
   Serial.println("Configuration file not found");
+  
   return false;
 }
 ```
@@ -1867,7 +1895,39 @@ ESPAsync_EMParameter custom_mqtt_server("server", "mqtt server", "iot.eclipse", 
 ---
 ---
 
-#### How to connect W5500 or ENC28J60 to ESP32_S3
+#### How to connect W5500 or ENC28J60 to ESP32_S2/S3/C3
+
+
+##### W5500
+
+`FULL_DUPLEX, 100Mbps`
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_Ethernet_Manager/raw/main/Images/W5500.png">
+</p>
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_Ethernet_Manager/raw/main/Images/W5500_small.png">
+</p> 
+ 
+---
+
+
+##### ENC28J60
+
+`FULL_DUPLEX, 10Mbps`
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_Ethernet_Manager/raw/main/Images/ENC28J60.png">
+</p>
+
+---
+
+#### ESP32S3_DEV
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_Ethernet_Manager/raw/main/Images/ESP32S3_DEV.png">
+</p> 
 
 You can change the `INT` pin to another one. Default is `GPIO4`
 
@@ -1877,36 +1937,6 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 ```
 
 ---
-
- 
---- 
-
-#### ESP32S3_DEV
-
-<p align="center">
-    <img src="https://github.com/khoih-prog/AsyncESP32_SC_Ethernet_Manager/raw/main/Images/ESP32S3_DEV.png">
-</p> 
-
----
-
-
-##### W5500
-
-<p align="center">
-    <img src="https://github.com/khoih-prog/AsyncESP32_SC_Ethernet_Manager/raw/main/Images/W5500.png">
-</p>
-
-<p align="center">
-    <img src="https://github.com/khoih-prog/AsyncESP32_SC_Ethernet_Manager/raw/main/Images/W5500_small.png">
-</p> 
-
-##### ENC28J60
-
-<p align="center">
-    <img src="https://github.com/khoih-prog/AsyncESP32_SC_Ethernet_Manager/raw/main/Images/ENC28J60.png">
-</p>
- 
-
 
 |W5500 or ENC28J60|<--->|ESP32_S3|
 |:-:|:-:|:-:|
@@ -1919,6 +1949,61 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 |GND|<--->|GND|
 |3.3V|<--->|3.3V|
 
+---
+
+#### ESP32S2_DEV
+
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_Ethernet_Manager/raw/main/Images/ESP32S2_DEV.png">
+</p> 
+
+
+You can change the `INT` pin to another one. Default is `GPIO4`
+
+```cpp
+// Must connect INT to GPIOxx or not working
+#define INT_GPIO            4
+```
+
+|W5500 or ENC28J60|<--->|ESP32_S2|
+|:-:|:-:|:-:|
+|MOSI|<--->|GPIO35|
+|MISO|<--->|GPIO37|
+|SCK|<--->|GPIO36|
+|SS|<--->|GPIO34|
+|INT|<--->|GPIO4|
+|RST|<--->|RST|
+|GND|<--->|GND|
+|3.3V|<--->|3.3V|
+
+
+---
+
+#### ESP32C3_DEV
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncESP32_SC_Ethernet_Manager/raw/main/Images/ESP32_C3_DevKitC_02.png">
+</p> 
+
+
+You can change the `INT` pin to another one. Default is `GPIO4`
+
+```cpp
+// Must connect INT to GPIOxx or not working
+#define INT_GPIO            10
+```
+
+|W5500 or ENC28J60|<--->|ESP32_C3|
+|:-:|:-:|:-:|
+|MOSI|<--->|GPIO6|
+|MISO|<--->|GPIO5|
+|SCK|<--->|GPIO4|
+|SS|<--->|GPIO7|
+|INT|<--->|GPIO10|
+|RST|<--->|RST|
+|GND|<--->|GND|
+|3.3V|<--->|3.3V|
 
 ---
 ---
@@ -1939,7 +2024,7 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 ### Example [Async_ConfigOnSwitch](examples/Async_ConfigOnSwitch)
 
 
-https://github.com/khoih-prog/AsyncESP32_SC_Ethernet_Manager/blob/102910b7a7a5e3ba0e7b6a34a987ad5ecf5e39e1/examples/Async_ConfigOnSwitch/Async_ConfigOnSwitch.ino#L26-L1012
+https://github.com/khoih-prog/AsyncESP32_SC_Ethernet_Manager/blob/2ac6022bc78d40d5eaf4bbb45c70c2317882b2b4/examples/Async_ConfigOnSwitch/Async_ConfigOnSwitch.ino#L26-L1011
 
 ---
 ---
@@ -1953,7 +2038,7 @@ This is terminal debug output when running [Async_ConfigOnDoubleReset](examples/
 
 ```
 Starting Async_ConfigOnDoubleReset_TZ using LittleFS on ESP32S3_DEV with ESP32_S3_ENC28J60
-AsyncESP32_SC_Ethernet_Manager v1.0.0
+AsyncESP32_SC_Ethernet_Manager v1.1.0
 ESP_DoubleResetDetector v1.3.2
 [EM] Default SPI pinout:
 [EM] MOSI: 11
@@ -1983,18 +2068,19 @@ Saving config file...
 Saving config file OK
 After waiting 0.00 secs more in setup(), connection result is connected. Local IP: 192.168.2.105
 [EM] freeing allocated params!
-Local Date/Time: Wed Dec 14 21:28:16 2022
+Local Date/Time: Fri Dec 23 20:31:54 2022
 Stop doubleResetDetecting
 Saving config file...
 Saving config file OK
 After waiting 0.00 secs more in setup(), connection result is connected. Local IP: 192.168.2.105
 [EM] freeing allocated params!
-Local Date/Time: Wed Dec 14 21:28:16 2022
+Local Date/Time: Fri Dec 23 20:32:54 2022
 Stop doubleResetDetecting
 Saving config file...
 Saving config file OK
-Local Date/Time: Wed Dec 14 21:29:14 2022
-Local Date/Time: Wed Dec 14 21:30:14 2022
+Local Date/Time: Fri Dec 23 20:33:52 2022
+Local Date/Time: Fri Dec 23 20:34:52 2022
+Local Date/Time: Fri Dec 23 20:35:52 2022
 ```
 
 ---
@@ -2006,7 +2092,7 @@ This is terminal debug output when running [Async_ConfigOnSwichFS](examples/Asyn
 
 ```
 Starting Async_ConfigOnSwichFS using LittleFS on ESP32S3_DEV with ESP32_S3_W5500
-AsyncESP32_SC_Ethernet_Manager v1.0.0
+AsyncESP32_SC_Ethernet_Manager v1.1.0
 [EM] Default SPI pinout:
 [EM] SPI_HOST: 2
 [EM] MOSI: 23
@@ -2038,7 +2124,7 @@ ETH MAC: DE:AD:BE:EF:FE:07, IPv4: 192.168.2.232
 FULL_DUPLEX, 100Mbps
 After waiting 0.00 secs more in setup(), connection result is connected. Local IP: 192.168.2.232
 [EM] freeing allocated params!
-Local Date/Time: Thu Dec  8 16:31:38 2022
+Local Date/Time: Fri Dec 23 20:31:54 2022
 
 Configuration portal requested.
 [EM] RFC925 Hostname = ConfigOnSwitchFS
@@ -2096,9 +2182,8 @@ Saving config file
 }
 Config file was successfully saved
 [EM] freeing allocated params!
-Local Date/Time: Wed Dec 14 21:34:27 2022
-Local Date/Time: Wed Dec 14 21:35:27 2022
-Local Date/Time: Wed Dec 14 21:36:27 2022
+Local Date/Time: Fri Dec 23 20:36:52 2022
+Local Date/Time: Fri Dec 23 20:37:52 2022
 ```
 
 ---
@@ -2110,7 +2195,7 @@ This is terminal debug output when running [Async_ESP32_FSWebServer_DRD](example
 
 ```cpp
 Starting Async_ESP32_FSWebServer_DRD using LittleFS on ESP32S3_DEV with ESP32_S3_W5500
-AsyncESP32_SC_Ethernet_Manager v1.0.0
+AsyncESP32_SC_Ethernet_Manager v1.1.0
 ESP_DoubleResetDetector v1.3.2
 FS File: CanadaFlag_1.png, size: 40.25KB
 FS File: CanadaFlag_2.png, size: 8.12KB
@@ -2167,6 +2252,59 @@ HHHHH HHHHHHHHHH HHHHHHHHHH HHHHHHHHHH
 ```
 
 ---
+
+#### 4. Async_ConfigOnDoubleReset_TZ using LittleFS on ESP32S2_DEV with ESP32_S2_ENC28J60
+
+This is terminal debug output when running [Async_ConfigOnDoubleReset](examples/Async_ConfigOnDoubleReset) on  **ESP32_S3_ENC28J60**.
+
+
+```
+Starting Async_ConfigOnDoubleReset_TZ using LittleFS on ESP32S2_DEV with ESP32_S2_ENC28J60
+AsyncESP32_SC_Ethernet_Manager v1.1.0
+ESP_DoubleResetDetector v1.3.2
+[EM] Default SPI pinout:
+[EM] SPI_HOST: 1
+[EM] MOSI: 35
+[EM] MISO: 37
+[EM] SCK: 36
+[EM] CS: 34
+[EM] INT: 4
+[EM] SPI Clock (MHz): 8
+[EM] =========================
+Using built-in mac_eth = 7E:DF:A1:08:64:27
+
+ETH Started
+[EM] RFC925 Hostname = AsyncConfigOnDoubleReset
+[EM] Set CORS Header to :  Your Access-Control-Allow-Origin
+[EM] LoadCfgFile 
+[EM] OK
+[EM] stationIP = 192.168.2.232 , gatewayIP = 192.168.2.1
+[EM] netMask = 255.255.255.0
+[EM] dns1IP = 192.168.2.1 , dns2IP = 8.8.8.8
+Got stored Credentials. Timeout 120s for Config Portal
+[EM] Current TZ_Name = America/New_York , TZ =  EST5EDT,M3.2.0,M11.1.0
+ETH Connected
+ETH MAC: 7E:DF:A1:08:64:27, IPv4: 192.168.2.132
+FULL_DUPLEX, 10Mbps
+LittleFS Flag read = 0xD0D04321
+No doubleResetDetected
+Saving config file...
+Saving config file OK
+After waiting 0.00 secs more in setup(), connection result is connected. Local IP: 192.168.2.132
+[EM] freeing allocated params!
+Stop doubleResetDetecting
+Saving config file...
+Saving config file OK
+Local Date/Time: Fri Dec 23 20:26:52 2022
+Local Date/Time: Fri Dec 23 20:27:52 2022
+Local Date/Time: Fri Dec 23 20:28:52 2022
+Local Date/Time: Fri Dec 23 20:29:52 2022
+Local Date/Time: Fri Dec 23 20:30:52 2022
+Local Date/Time: Fri Dec 23 20:31:52 2022
+Local Date/Time: Fri Dec 23 20:32:52 2022
+```
+
+---
 ---
 
 ### Debug
@@ -2205,13 +2343,15 @@ Submit issues to: [AsyncESP32_SC_Ethernet_Manager issues](https://github.com/kho
 ### TO DO
 
 1. Bug Searching and Killing
-2. Add support to **ESP32_S2 and ESP32_C3-based boards** using `LwIP W5500 Ethernet`
-3. Add support to **ESP32_S2 and ESP32_C3-based boards** using `LwIP ENC28J60 Ethernet`
+
 
 ### DONE
 
  1. Add support to **ESP32S3-based boards** using `LwIP W5500 or ENC28J60 Ethernet`
-
+ 2. Add support to **ESP32_S2 and ESP32_C3-based boards** using `LwIP W5500 Ethernet`
+ 3. Add support to **ESP32_S2 and ESP32_C3-based boards** using `LwIP ENC28J60 Ethernet`
+ 
+ 
 ---
 ---
 
